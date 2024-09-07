@@ -1,8 +1,25 @@
-import React from 'react'
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react'
+import { Link,useNavigate } from 'react-router-dom';
 import './Login.css'
 import hogwartsLogo from '../medias/background.png'; 
+import { login } from '../api/auth';
 function Login() {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const history = useNavigate(); // For navigation
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const data = await login({ username, password });
+      localStorage.setItem('token', data.token); // Save token in localStorage
+      history.push('/'); // Redirect to the dashboard or another protected route
+    } catch (err) {
+      setError(err.msg); // Display error message
+    }
+  };
+
   return (
         <div className='wrapper'>
             <div className="title">
@@ -10,10 +27,21 @@ function Login() {
             </div>
             <img src={hogwartsLogo} alt="Hogwarts Logo" width={250}/>
             <div className="login-container">
-                    <input className="login-credentials" type="text" placeholder='Username'/>
-                    <input className="login-credentials" type="password" placeholder='Password'/>
+                    <input className="login-credentials" 
+                           type="text" placeholder='Username' 
+                           value={username} 
+                           onChange={(e) => setUsername(e.target.value)}
+                    />
+                    <input className="login-credentials" 
+                           type="password" placeholder='Password' 
+                           value={password} 
+                           onChange={(e) => setPassword(e.target.value)}
+                    />
             </div>
-            <input className="login-submit" type="submit" value="Login"/>
+            <button className="login-submit" 
+                    onClick={handleSubmit}>Login
+            </button>
+            {error && <p className="error-message">{error}</p>}
             <Link to="/signup" className='switching-signup'>
             <button className="create-account">Create an Account</button>
             </Link>
