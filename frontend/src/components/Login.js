@@ -7,19 +7,18 @@ function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const history = useNavigate(); // For navigation
+  const navigate = useNavigate(); // For navigation
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const data = await login({ username, password });
       localStorage.setItem('token', data.token); // Save token in localStorage
-      history.push('/'); // Redirect to the dashboard or another protected route
+      navigate('/dashboard', { state: { username } }); // Redirect to the dashboard or another protected route
     } catch (err) {
       setError(err.msg); // Display error message
     }
   };
-
   return (
         <div className='wrapper'>
             <div className="title">
