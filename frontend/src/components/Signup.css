@@ -1,0 +1,25 @@
+.signup-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.signup-credentials,.signup-submit{
+    margin-bottom: 20px;
+    display: block;
+    text-align: center;
+    padding: 10px;
+    box-sizing: border-box;
+    transition: background-color 0.5s ease;
+    color: #ecf0f1;
+    border-radius: 7px;
+    border: .5px solid grey;
+}
+.signup-submit{
+    cursor: pointer;
+}
+.signup-credentials:hover {
+    background-color: hsl(204, 76%, 25%);
+}
+.signup-submit:hover{
+    background-color: hsl(145, 82%, 30%);
+}

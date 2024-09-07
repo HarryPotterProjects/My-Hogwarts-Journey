@@ -3,15 +3,19 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    background-color: aliceblue;
+    background-color: #2c3e50;
     height: 100vh;
 }
 .title{
     font-size: 50px;
     margin-top: 30px;
-    margin-bottom: 250px;
+    margin-bottom: 200px;
+    color: hsl(192, 15%, 94%);
 }
-input {
+.login-container{
+    margin-bottom: 25px;
+}
+input,button {
     all: unset;
   }
 .login-credentials-container {
@@ -24,12 +28,12 @@ input {
     width: calc(50% - 10px); 
     box-sizing: border-box;
     transition: background-color 0.5s ease;
-
 }
 .login-credentials:not(:last-child) {
     margin-right: 20px; 
 }
-.login-credentials,.login-submit{
+.login-credentials,.login-submit,.create-account{
+    color: #ecf0f1;
     border-radius: 7px;
     border: .5px solid grey;
 }
@@ -40,10 +44,21 @@ input {
     cursor: pointer;
     transition: background-color 0.5s ease;
 }
+.create-account{
+    color: #ecf0f1;
+    font-size: small;
+    border: none;
+    padding: 5px;
+    box-sizing: border-box; 
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+.create-account:hover{
+    color: hsl(45, 100%, 67%);
+}
 .login-credentials:hover {
-    background-color: yellow;
+    background-color: hsl(204, 76%, 25%);
 }
 .login-submit:hover{
-    background-color: rgb(47, 85, 173);
-
+    background-color: hsl(145, 82%, 30%);
 }
