@@ -32,7 +32,7 @@
     cursor: pointer;
     transition: color 0.3s ease;
 }
-.create-account:hover{
+.login-account:hover{
     color: hsl(45, 100%, 67%);
 }
 .switching-login{

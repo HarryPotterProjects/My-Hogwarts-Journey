@@ -3,13 +3,13 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    background-color: #2c3e50;
+    background-color: hsl(0, 75%, 21%);
     height: 100vh;
 }
 .title{
     font-size: 50px;
     margin-top: 30px;
-    margin-bottom: 200px;
+    margin-bottom: 75px;
     color: hsl(192, 15%, 94%);
 }
 .login-container{
@@ -18,7 +18,9 @@
 input,button {
     all: unset;
 }
-
+img{
+    margin-bottom: 60px;
+}
 .login-credentials-container {
     width: 100%; 
     margin-bottom: 40px;
