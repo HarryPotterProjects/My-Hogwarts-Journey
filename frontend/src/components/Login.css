@@ -17,7 +17,8 @@
 }
 input,button {
     all: unset;
-  }
+}
+
 .login-credentials-container {
     width: 100%; 
     margin-bottom: 40px;
@@ -38,11 +39,14 @@ input,button {
     border: .5px solid grey;
 }
 .login-submit{
-    padding: 5px;
-    width: calc(40% - 10px); 
-    box-sizing: border-box; 
     cursor: pointer;
+    padding: 5px 25px;
     transition: background-color 0.5s ease;
+    margin-bottom: 20px;
+
+}
+.login-submit:hover{
+    background-color: hsl(145, 82%, 30%);
 }
 .create-account{
     color: #ecf0f1;
@@ -61,4 +65,7 @@ input,button {
 }
 .login-submit:hover{
     background-color: hsl(145, 82%, 30%);
+}
+.switching-signup{
+    text-decoration: none;
 }
