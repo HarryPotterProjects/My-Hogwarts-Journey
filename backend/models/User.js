@@ -11,12 +11,7 @@ const UserSchema = new mongoose.Schema({
   password: {
     type: String,
     required: true,
-  },
-  house: {
-    type: String,
-    enum: ['Gryffindor', 'Hufflepuff', 'Ravenclaw', 'Slytherin'], // Optional: restrict values to Hogwarts houses
-    default: null, // Optional: set default value if not provided
-  },
+  }
 },{
   versionKey: false // Disable the `__v` field
 

@@ -19,6 +19,11 @@ function Login() {
       setError(err.msg); // Display error message
     }
   };
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      handleSubmit(e);  // Call the login function on Enter key press
+    }
+  };
   return (
         <div className='wrapper'>
             <div className="title">
@@ -30,11 +35,13 @@ function Login() {
                            type="text" placeholder='Username' 
                            value={username} 
                            onChange={(e) => setUsername(e.target.value)}
+                           onKeyDown={handleKeyDown}
                     />
                     <input className="login-credentials" 
                            type="password" placeholder='Password' 
                            value={password} 
                            onChange={(e) => setPassword(e.target.value)}
+                           onKeyDown={handleKeyDown}
                     />
             </div>
             <button className="login-submit" 
