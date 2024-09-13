@@ -25,9 +25,14 @@ app.get('/', (req, res) => {
   res.send('Welcome to Hogwarts!');
 });
 
-// Use Routes
-const authRoutes = require('./routes/auth'); // Ensure the path is correct
+// User Authentication Routes
+const authRoutes = require('./routes/auth');
 app.use('/api/auth', authRoutes);
+
+// Character Routes
+const characterRoutes = require('./routes/character');
+app.use('/api/character', characterRoutes);
+
 
 // Start the Server
 app.listen(PORT, () => {
