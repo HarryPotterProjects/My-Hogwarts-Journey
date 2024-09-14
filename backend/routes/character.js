@@ -31,22 +31,5 @@ router.post('/create-character', authenticateToken, async (req, res) => {
   }
 });
 
-// GET route to fetch characters by user ID
-router.get('/user/:userId', authenticateToken, async (req, res) => {
-  try {
-    const { userId } = req.params;
-
-    // Fetch characters associated with the provided user ID
-    const characters = await Character.find({ user_id: userId });
-
-    if (!characters.length) return res.status(404).json({ msg: 'No characters found for this user' });
-
-    res.json(characters);
-  } catch (err) {
-    console.error(err.message);
-    res.status(500).send('Server error');
-  }
-});
-
 
 module.exports = router;

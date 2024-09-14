@@ -1,0 +1,22 @@
+.character-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.character-input{
+    text-align: center;
+    padding: 5px;
+    color: #ecf0f1;
+    border-radius: 7px;
+    border: .5px solid grey;
+    margin: 10px;
+}
+.create-character{
+    margin-top: 15px;
+    cursor: pointer;
+    transition: color 0.5s ease;
+}
+.create-character:hover{
+    color: hsl(45, 100%, 67%);
+}

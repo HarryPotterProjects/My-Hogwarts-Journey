@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useSpring, animated } from '@react-spring/web';
 import './Dashboard.css';
+import CharacterForm  from './CharacterForm'
 
 const Dashboard = () => {
   const [page, setPage] = useState(0); // 0 for Welcome, 1 for Create Character
@@ -25,7 +26,7 @@ const Dashboard = () => {
 
       {/* Second section */}
       <animated.div style={createSpring} className="section create">
-        <h2>Create Character Form</h2>
+        <CharacterForm/>
       </animated.div>
 
       {/* Button for Navigation */}

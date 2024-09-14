@@ -1,8 +1,9 @@
+// src/routes/auth.js
 const express = require('express');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
-const authenticateToken = require('../middleware/authmiddleware'); // Update import
+const authenticateToken = require('../middleware/authmiddleware'); // Ensure correct import
 
 const router = express.Router();
 
@@ -47,11 +48,10 @@ router.post('/login', async (req, res) => {
     res.status(500).send('Server error');
   }
 });
-
-// Get user info by ID
+// Get user info by ID (returns only username)
 router.get('/:id', authenticateToken, async (req, res) => {
   try {
-    const user = await User.findById(req.params.id).select('-password');
+    const user = await User.findById(req.params.id).select('username'); // Only select the username field
 
     if (!user) return res.status(404).json({ msg: 'User not found' });
 
@@ -61,5 +61,4 @@ router.get('/:id', authenticateToken, async (req, res) => {
     res.status(500).send('Server error');
   }
 });
-
 module.exports = router;
