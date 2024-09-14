@@ -9,15 +9,15 @@ router.post('/create-character', authenticateToken, async (req, res) => {
   try {
     const { firstname, lastname, house } = req.body;
 
-    if (!firstname || !lastname || !house) {
-      return res.status(400).json({ msg: 'Please enter all fields' });
+    if (!firstname || !lastname) {
+      return res.status(400).json({ msg: 'Please enter all required fields' });
     }
 
     // Create the character associated with the logged-in user
     const newCharacter = new Character({
       firstname,
       lastname,
-      house,
+      house: house || null, // Default to null if not provided
       user_id: req.user.user.id // Ensure req.user.user.id is correct
     });
 
@@ -30,6 +30,7 @@ router.post('/create-character', authenticateToken, async (req, res) => {
     res.status(500).send('Server error');
   }
 });
+
 
 
 module.exports = router;

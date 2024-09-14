@@ -13,8 +13,7 @@ const CharacterSchema = new mongoose.Schema({
   },
   house:{
     type:String,
-    enum:['Gryffindor', 'Hufflepuff', 'Ravenclaw', 'Slytherin'],
-    required : true
+    enum:['Gryffindor', 'Hufflepuff', 'Ravenclaw', 'Slytherin']
   },
   user_id: {
     type: mongoose.Schema.Types.ObjectId,
