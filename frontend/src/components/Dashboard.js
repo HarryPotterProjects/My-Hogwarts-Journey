@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSpring, animated } from '@react-spring/web';
 import './Dashboard.css';
-import CharacterForm  from './CharacterForm'
+import CharacterForm from './CharacterForm';
 
 const Dashboard = () => {
   const [page, setPage] = useState(0); // 0 for Welcome, 1 for Create Character
@@ -17,6 +17,12 @@ const Dashboard = () => {
     transform: page === 1 ? 'translateX(0)' : 'translateX(100%)',
   });
 
+  useEffect(() => {
+    if (page === 0) {
+      // Optional: Reset form fields or perform other actions
+    }
+  }, [page]);
+
   return (
     <div className="dashboard">
       {/* First section */}
@@ -26,7 +32,7 @@ const Dashboard = () => {
 
       {/* Second section */}
       <animated.div style={createSpring} className="section create">
-        <CharacterForm/>
+        <CharacterForm />
       </animated.div>
 
       {/* Button for Navigation */}

@@ -1,18 +1,18 @@
 import axios from 'axios';
-const API_URL = 'http://localhost:5000/api/character';
 
+const API_URL = 'http://localhost:5000/api/character';
 export const createCharacter = async (characterData) => {
-  const token = localStorage.getItem('token'); // Ensure the token is stored correctly
   try {
-    console.log('Sending data:', characterData); // Log the data being sent to the backend
-    const response = await axios.post(`${API_URL}/create-character`, characterData, {
+    const token = localStorage.getItem('token'); // Fetch token from localStorage
+    const response = await axios.post(API_URL, characterData, {
       headers: {
-        Authorization: `Bearer ${token}`,
-      },
+        Authorization: `Bearer ${token}` // Attach the token to the request
+      }
     });
+
     return response.data;
-  } catch (error) {
-    console.error('Error in character Creation:', error); // Log any error that occurs
-    throw error.response.data;
+  } catch (err) {
+    console.error('Error creating character:', err);
+    return { success: false, message: err.response ? err.response.data.msg : 'Unknown error' };
   }
 };

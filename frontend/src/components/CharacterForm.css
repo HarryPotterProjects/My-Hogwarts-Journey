@@ -4,7 +4,7 @@
     justify-content: center;
     align-items: center;
 }
-.character-input{
+.character-input, .create-character{
     text-align: center;
     padding: 5px;
     color: #ecf0f1;
@@ -13,10 +13,14 @@
     margin: 10px;
 }
 .create-character{
-    margin-top: 15px;
+    border: none;
+    margin-top: 25px;
     cursor: pointer;
-    transition: color 0.5s ease;
+    background-color: hsl(37, 90%, 41%);
+    transition: background-color 0.5s ease;
+    transition: padding 0.5s ease;
 }
 .create-character:hover{
-    color: hsl(45, 100%, 67%);
+    background-color: hsl(37, 90%, 31%);
+    padding: 10px;
 }
